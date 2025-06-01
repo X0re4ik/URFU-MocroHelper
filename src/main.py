@@ -35,6 +35,7 @@ async def websocket_endpoint(websocket: WebSocket):
         if result is None:
             logger.error("No data")
             await websocket.send_text("No data")
+            continue
 
         data = result.model_dump_json(by_alias=True)
 
