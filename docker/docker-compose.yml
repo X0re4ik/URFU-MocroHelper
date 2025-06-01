@@ -1,0 +1,15 @@
+services:
+
+  microservice-1-mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - microservice_1_mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+    restart: always
+
+volumes:
+  microservice_1_mongo_data:
