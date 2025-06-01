@@ -14,3 +14,9 @@ RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi --no-root
 
 COPY . /app
+
+RUN chmod +x ./.ci/entrypoints/start.sh
+
+ENTRYPOINT ["./.ci/entrypoints/start.sh"]
+
+EXPOSE 8080
