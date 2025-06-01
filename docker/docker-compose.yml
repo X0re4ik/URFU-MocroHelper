@@ -11,5 +11,18 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: mongoadmin
     restart: always
 
+  microservice-2-postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    volumes:
+      - microservice_2_postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pgadmin
+      POSTGRES_PASSWORD: pgadmin
+      POSTGRES_DB: mydatabase
+    restart: always
+
 volumes:
   microservice_1_mongo_data:
+  microservice_2_postgres_data:
