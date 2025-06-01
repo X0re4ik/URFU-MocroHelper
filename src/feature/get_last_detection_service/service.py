@@ -18,7 +18,7 @@ class GetLastDetectionService:
 
     async def get_last_detection(self) -> GetLastDetectionDTO | None:
 
-        async with self._mongo_manager.get_collection("DroneIncidents") as collection:
+        async with self._mongo_manager.get_collection("DetectionResult") as collection:
 
             result = await collection.find_one(sort=[("timestamp", -1)])
 
